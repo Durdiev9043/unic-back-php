@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\api\GeneralController;
 use App\Http\Controllers\Api\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +25,12 @@ Route::post('/auth/register', [AuthController::class, 'createUser']);
 Route::post('/auth/login', [AuthController::class, 'loginUser']);
 Route::middleware(['auth:sanctum'/*, 'abilities:check-status'*/])->group(function () {
     Route::resource('task', TaskController::class);
+    Route::get('my/task/today/{id}',[GeneralController::class,'today']);
+    Route::get('my/task/thisweek/{id}',[GeneralController::class,'thisweek']);
+    Route::get('my/home/{id}',[GeneralController::class,'home']);
+    Route::get('my/come/{id}',[GeneralController::class,'radius']);
+    Route::get('boss/glavni',[GeneralController::class,'boss']);
+    Route::get('boss/district/{id}',[GeneralController::class,'district']);
+    Route::get('boss/user/{id}',[GeneralController::class,'userDistrict']);
+    Route::get('user/count/{id}',[GeneralController::class,'userCount']);
 });

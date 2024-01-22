@@ -18,8 +18,8 @@
 
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0 text-white align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+                        <a href="{{ route('location.index') }}" class="nav-link px-0 text-white align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">location</span></a>
                     </li>
                     <li>
                         <a href="#submenu2" data-bs-toggle="collapse" class="nav-link text-white px-0 align-middle ">
