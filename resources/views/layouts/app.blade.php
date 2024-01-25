@@ -76,7 +76,10 @@
         <main class="">
             <div class="container-fluid">
                 <div class="row">
+                    @if(\Illuminate\Support\Facades\Auth::user())
+
                     @include('layouts/sidebar')
+                    @endif
                     <div class="col py-3">
                     @yield('content')
                     </div>
