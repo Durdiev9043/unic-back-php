@@ -32,9 +32,15 @@ class GeneralController extends BaseController
     }
     public function home($id){
         $today= count(Task::where('user_id',$id)->whereDate('created_at', Carbon::today())->get());
+        $yesterday= count(Task::where('user_id',$id)->whereDate('created_at', Carbon::yesterday())->get());
         $thisweek=count(Task::where('user_id',$id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get());
-        $data=['today'=>$today,'Thisweek'=>$thisweek];
-        return $this->sendSuccess($data,'zor');
+        $farqi=$yesterday-$today;
+        $data=['today'=>$today,'Thisweek'=>$thisweek,'yesterday'=>$yesterday,'farqi'=>$farqi];
+        return $this->sendSuccess($data,'Bosh sahifa');
+    }
+    public function info($id){
+        $user=User::where('id',$id)->first();
+        return $this->sendSuccess($user,'Foydalanuvchi haqida ma\'lumotlar');
     }
     public function radius(Request $request,$id)
     {
@@ -67,10 +73,10 @@ class GeneralController extends BaseController
                 'time' => $request->time,
             ]);
             if ($data) {
-                return $this->sendSuccess($d, 'Siz oz vaqtida ishga keldingiz'); // distance, in meters
+                return $this->sendSuccess($d, 'Siz ishga yetib keldingiz'); // distance, in meters
             }
         } else {
-            return $this->sendSuccess($d, 'Siz manzilga yetib bormagansiz iltimos xatolikni to\'g\'rlang'); // distance, in meters
+            return $this->sendSuccess($d, 'Siz manzilga yetib bormagansiz'); // distance, in meters
         }
     }
 

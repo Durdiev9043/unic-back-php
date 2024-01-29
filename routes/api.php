@@ -26,6 +26,7 @@ Route::post('/auth/login', [AuthController::class, 'loginUser']);
 Route::middleware(['auth:sanctum'/*, 'abilities:check-status'*/])->group(function () {
     Route::resource('task', TaskController::class);
     Route::get('my/task/today/{id}',[GeneralController::class,'today']);
+    Route::get('user/info/{id}',[GeneralController::class,'info']);
     Route::get('my/task/thisweek/{id}',[GeneralController::class,'thisweek']);
     Route::get('my/home/{id}',[GeneralController::class,'home']);
     Route::get('my/come/{id}',[GeneralController::class,'radius']);
