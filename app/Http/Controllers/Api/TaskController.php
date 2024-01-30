@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Task;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -25,7 +26,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
 //'user_id','img1','img2','img3','img4','img5','organization','stir','lang','lat','task_id'
-        if ($request->img1[5]){
+        if ($request->img1[5] && $request->hasfile('img1')){
             $uuid1 = Str::uuid()->toString();
             $fileName1 = $uuid1 . '-' . time() . '.' . $request->img1[0]->extension();
             $request->img1[0]->move(public_path('../public/storage/galereya/'), $fileName1);
@@ -59,7 +60,7 @@ class TaskController extends Controller
                 'task_id'=>$request->task_id,
             ]);
         }
-        elseif ($request->img1[4]){
+        elseif ($request->img1[4] && $request->hasfile('img1')){
             $uuid1 = Str::uuid()->toString();
             $fileName1 = $uuid1 . '-' . time() . '.' . $request->img1[0]->extension();
             $request->img1[0]->move(public_path('../public/storage/galereya/'), $fileName1);
@@ -89,7 +90,7 @@ class TaskController extends Controller
                 'task_id'=>$request->task_id,
             ]);
         }
-        elseif ($request->img1[3]){
+        elseif ($request->img1[3]  && $request->hasfile('img1')){
             $uuid1 = Str::uuid()->toString();
             $fileName1 = $uuid1 . '-' . time() . '.' . $request->img1[0]->extension();
             $request->img1[0]->move(public_path('../public/storage/galereya/'), $fileName1);
@@ -115,7 +116,7 @@ class TaskController extends Controller
                 'task_id'=>$request->task_id,
             ]);
         }
-        elseif ($request->img1[2]){
+        elseif ($request->img1[2]  && $request->hasfile('img1')){
             $uuid1 = Str::uuid()->toString();
             $fileName1 = $uuid1 . '-' . time() . '.' . $request->img1[0]->extension();
             $request->img1[0]->move(public_path('../public/storage/galereya/'), $fileName1);
@@ -137,7 +138,7 @@ class TaskController extends Controller
                 'task_id'=>$request->task_id,
             ]);
         }
-        elseif ($request->img1[1]){
+        elseif ($request->img1[1]  && $request->hasfile('img1')){
     $uuid1 = Str::uuid()->toString();
         $fileName1 = $uuid1 . '-' . time() . '.' . $request->img1[0]->extension();
         $request->img1[0]->move(public_path('../public/storage/galereya/'), $fileName1);
@@ -155,7 +156,7 @@ class TaskController extends Controller
             'task_id'=>$request->task_id,
         ]);
     }
-    elseif ($request->img1[0]){
+    elseif ($request->img1[0] && $request->hasfile('img1')){
         $uuid1 = Str::uuid()->toString();
         $fileName1 = $uuid1 . '-' . time() . '.' . $request->img1[0]->extension();
         $request->img1[0]->move(public_path('../public/storage/galereya/'), $fileName1);
@@ -168,6 +169,9 @@ class TaskController extends Controller
             'lat'=>$request->lat,
             'task_id'=>$request->task_id,
         ]);}
+        else{
+            return response()->json(['status' => false, 'msg' => 'file yuklanmagan']);
+        }
                return response()->json(['status' => true,]);
 
 
