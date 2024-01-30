@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
@@ -9,6 +9,7 @@ use App\Models\District;
 use App\Models\Location;
 use App\Models\Region;
 use App\Models\Task;
+use App\Models\TaskType;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -22,6 +23,10 @@ class GeneralController extends BaseController
         $today=Carbon::today();
         $tasks=Task::where('user_id',$id)->whereDate('created_at', Carbon::today())->get();
         return $this->sendSuccess($tasks,$msg);
+    }
+    public function type(){
+        $types=TaskType::all();
+        return $this->sendSuccess($types,'task types');
     }
     public function thisweek($id){
         $user=User::where('id',$id)->first();
