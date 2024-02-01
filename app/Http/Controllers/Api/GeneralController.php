@@ -24,6 +24,12 @@ class GeneralController extends BaseController
         $tasks=Task::where('user_id',$id)->whereDate('created_at', Carbon::today())->get();
         return $this->sendSuccess($tasks,$msg);
     }
+    public function yesterday($id){
+        $user=User::where('id',$id)->first();
+        $msg=$user->name.'ning kechagi qilgan ishlari';
+        $tasks=Task::where('user_id',$id)->whereDate('created_at', Carbon::yesterday())->get();
+        return $this->sendSuccess($tasks,$msg);
+    }
     public function type(){
         $types=TaskType::all();
         return $this->sendSuccess($types,'task types');
@@ -198,6 +204,7 @@ class GeneralController extends BaseController
         }
         return $this->sendSuccess($atvet,$ds->name.'ning hodimlar kesimida statistika');
 }
+
 
 public function userCount($id){
         $tasks=Task::where('user_id',$id)->get();
