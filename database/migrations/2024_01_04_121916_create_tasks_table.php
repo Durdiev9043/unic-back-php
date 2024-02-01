@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('img3')->nullable();
             $table->string('img4')->nullable();
             $table->string('img5')->nullable();
+            $table->string('akt')->nullable();
             $table->string('organization');
             $table->unsignedBigInteger('stir');
             $table->double('lang');
