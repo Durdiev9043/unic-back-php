@@ -40,7 +40,7 @@ class GeneralController extends BaseController
         $yesterday= count(Task::where('user_id',$id)->whereDate('created_at', Carbon::yesterday())->get());
         $thisweek=count(Task::where('user_id',$id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get());
         $farqi=$yesterday-$today;
-        $data=['today'=>$today,'Thisweek'=>$thisweek,'yesterday'=>$yesterday,'farqi'=>$farqi];
+        $data=['today'=>$today,'yesterday'=>$yesterday,'farqi'=>$farqi,'Thisweek'=>$thisweek];
         return $this->sendSuccess($data,'Bosh sahifa');
     }
     public function info($id){
