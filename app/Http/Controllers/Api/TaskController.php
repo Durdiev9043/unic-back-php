@@ -26,7 +26,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
 //'user_id','img1','img2','img3','img4','img5','organization','stir','lang','lat','task_id'
-        if ($request->img1[5] && $request->hasfile('img1') &&  $request->hasfile('akt')){
+        if (isset($request->img1[5]) && $request->hasfile('img1') &&  $request->hasfile('akt')){
             $akt = Str::uuid()->toString();
             $aktName = $akt . '-' . time() . '.' . $request->akt->extension();
             $request->akt->move(public_path('../public/storage/galereya/'), $aktName);
@@ -64,7 +64,7 @@ class TaskController extends Controller
                 'task_id'=>$request->task_id,
             ]);
         }
-        elseif ($request->img1[4] && $request->hasfile('img1')){
+        elseif (isset($request->img1[4]) && $request->hasfile('img1') &&  $request->hasfile('akt')){
             $akt = Str::uuid()->toString();
             $aktName = $akt . '-' . time() . '.' . $request->akt->extension();
             $request->akt->move(public_path('../public/storage/galereya/'), $aktName);
@@ -98,7 +98,7 @@ class TaskController extends Controller
                 'task_id'=>$request->task_id,
             ]);
         }
-        elseif ($request->img1[3]  && $request->hasfile('img1')){
+        elseif (isset($request->img1[3])  && $request->hasfile('img1') &&  $request->hasfile('akt')){
             $akt = Str::uuid()->toString();
             $aktName = $akt . '-' . time() . '.' . $request->akt->extension();
             $request->akt->move(public_path('../public/storage/galereya/'), $aktName);
@@ -128,7 +128,7 @@ class TaskController extends Controller
                 'task_id'=>$request->task_id,
             ]);
         }
-        elseif ($request->img1[2]  && $request->hasfile('img1')){
+        elseif (isset($request->img1[2])  && $request->hasfile('img1') &&  $request->hasfile('akt')){
             $akt = Str::uuid()->toString();
             $aktName = $akt . '-' . time() . '.' . $request->akt->extension();
             $request->akt->move(public_path('../public/storage/galereya/'), $aktName);
@@ -154,7 +154,7 @@ class TaskController extends Controller
                 'task_id'=>$request->task_id,
             ]);
         }
-        elseif ($request->img1[1]  && $request->hasfile('img1')){
+        elseif (isset($request->img1[1])  && $request->hasfile('img1') &&  $request->hasfile('akt')){
             $akt = Str::uuid()->toString();
             $aktName = $akt . '-' . time() . '.' . $request->akt->extension();
             $request->akt->move(public_path('../public/storage/galereya/'), $aktName);
@@ -176,7 +176,7 @@ class TaskController extends Controller
             'task_id'=>$request->task_id,
         ]);
     }
-    elseif ($request->img1[0] && $request->hasfile('img1')){
+    elseif (isset($request->img1[0]) && $request->hasfile('img1') &&  $request->hasfile('akt')){
         $akt = Str::uuid()->toString();
         $aktName = $akt . '-' . time() . '.' . $request->akt->extension();
         $request->akt->move(public_path('../public/storage/galereya/'), $aktName);
