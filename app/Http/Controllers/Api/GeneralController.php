@@ -119,7 +119,7 @@ class GeneralController extends BaseController
             $district=District::where('region_id',$region->id)->count();
             $hodimlar=User::where('region_id',$region->id)->whereNotNull('district_id')->count();
             if ($hodimlar>0) {
-                $kpi = $today / ($hodimlar * 5);
+                $kpi = ($today / ($hodimlar * 5))*100;
             }else{
                 $kpi=0;
             }
@@ -139,7 +139,8 @@ class GeneralController extends BaseController
 
 
         }
-        return $this->sendSuccess($atvet,'Viloyatlar kesimida qilingan ishlar');
+//        return $this->sendSuccess($atvet,'Viloyatlar kesimida qilingan ishlar');
+        return $atvet;
     }
     public function district($id){
         $region=Region::where('id',$id)->first();
@@ -169,17 +170,24 @@ class GeneralController extends BaseController
 
         $hodimlar=User::where('district_id',$district->id)->count();
 
-
+            if ($hodimlar>0) {
+                $kpi = ($today / ($hodimlar * 5))*100;
+            }else{
+                $kpi=0;
+            }
+            $farqi=$today-$yesterday;
         $atvet[$district->name]['id']=$district->id;
         $atvet[$district->name]['name']=$district->name;
         $atvet[$district->name]['hammasi']=$xx;
         $atvet[$district->name]['today']= $today;
+        $atvet[$district->name]['kpi']= $kpi;
         $atvet[$district->name]['yesterday']= $yesterday;
         $atvet[$district->name]['thisweek']= $thisweek;
         $atvet[$district->name]['user']= $hodimlar;
+        $atvet[$district->name]['farqi']= $farqi;
         }
 
-        return $this->sendSuccess($atvet,$region->name.'ning tumanlar kesimida statistika');
+        return $atvet;
 
     }
 
@@ -193,6 +201,7 @@ class GeneralController extends BaseController
             $today=Task::where('user_id',$user->id)->whereDate('tasks.created_at', Carbon::today())->count();
             $yesterday=Task::where('user_id',$user->id)->whereDate('tasks.created_at', Carbon::yesterday())->count();
             $thisweek=Task::where('user_id',$user->id)->whereBetween('tasks.created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
+            $farqi=$today-$yesterday;
 
 
             $atvet[$user->name]['id']=$user->id;
@@ -201,14 +210,37 @@ class GeneralController extends BaseController
             $atvet[$user->name]['today']=$today;
             $atvet[$user->name]['yesterday']=$yesterday;
             $atvet[$user->name]['thisweek']=$thisweek;
+            $atvet[$user->name]['farqi']=$farqi;
+
         }
-        return $this->sendSuccess($atvet,$ds->name.'ning hodimlar kesimida statistika');
+        return $atvet;
 }
 
 
 public function userCount($id){
-        $tasks=Task::where('user_id',$id)->get();
-        dd($tasks);
+        $tasks=Task::where('user_id',$id)->orderBy('id', 'DESC')->get();
+        $user=User::where('id',$id)->first();
+        $type=TaskType::all();
+        $atvet=[];
+//        $atvet['name']=$tasks->user->name;
+    foreach ($tasks as $task){
+        $atvet[$task->id]['id']=$task->id;
+        $atvet[$task->id]['name']=$user->name;
+        $atvet[$task->id]['img1']=$task->img1;
+        $atvet[$task->id]['img2']=$task->img2;
+        $atvet[$task->id]['img3']=$task->img3;
+        $atvet[$task->id]['img4']=$task->img4;
+        $atvet[$task->id]['img5']=$task->img5;
+        $atvet[$task->id]['organization']=$task->organization;
+        $atvet[$task->id]['stir']=$task->stir;
+        $atvet[$task->id]['lang']=$task->lang;
+        $atvet[$task->id]['lat']=$task->lat;
+        $atvet[$task->id]['task_id']=$type[($task->task_id)-1]->name;
+        $atvet[$task->id]['day']=$task->created_at->subMinutes(300)->format('d.m.Y  H:i');
+    }
+
+
+        return $atvet;
 }
 
 
