@@ -226,6 +226,7 @@ public function userCount($id){
     foreach ($tasks as $task){
         $atvet[$task->id]['id']=$task->id;
         $atvet[$task->id]['name']=$user->name;
+        $atvet[$task->id]['akt']=$task->akt;
         $atvet[$task->id]['img1']=$task->img1;
         $atvet[$task->id]['img2']=$task->img2;
         $atvet[$task->id]['img3']=$task->img3;
