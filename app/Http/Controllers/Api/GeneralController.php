@@ -237,7 +237,7 @@ public function userCount($id){
         $atvet[$task->id]['lang']=$task->lang;
         $atvet[$task->id]['lat']=$task->lat;
         $atvet[$task->id]['task_id']=$type[($task->task_id)-1]->name;
-        $atvet[$task->id]['day']=$task->created_at->addMinutes(420)->format('d.m.Y  H:i');
+        $atvet[$task->id]['day']=$task->created_at->format('d.m.Y  H:i');
     }
 
 
