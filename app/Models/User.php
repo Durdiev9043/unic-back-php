@@ -37,7 +37,12 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+public function district(){
+    return $this->belongsTo(District::class);
+}
+    public function region(){
+        return $this->belongsTo(Region::class);
+    }
     /**
      * The attributes that should be cast.
      *
