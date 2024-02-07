@@ -260,7 +260,7 @@ public function workTime(){
         $atvet[$item->id]['lang'] = $item->lang;
         $atvet[$item->id]['time'] = $item->created_at->addMinutes(300)->format('d.m.Y  H:i');
     }
-        return $atvet;
+        return $data;
 }
 
 }
