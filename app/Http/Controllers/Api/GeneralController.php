@@ -250,7 +250,7 @@ public function userCount($id){
 }
 
 public function workTime(){
-        $data=Daily::where('created_at',Carbon::today())->get();
+        $data=Daily::whereDate('created_at',Carbon::today())->get();
 //    where('created_at', Carbon::today())
     $atvet=[];
     foreach ($data as $item) {
