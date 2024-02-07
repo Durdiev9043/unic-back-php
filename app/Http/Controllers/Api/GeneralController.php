@@ -76,8 +76,8 @@ class GeneralController extends BaseController
         $d = $r * $c;
 
         if ($d <= 150) {
-            $xx=Daily::whereDate('created_at',Carbon::today())->andwhere('user_id',$user->id)->first();
-            if (!$xx){
+            $xx=Daily::whereDate('created_at',Carbon::today())->andwhere('user_id',$user->id)->get();
+            if (count($xx)==0){
                 $data = Daily::create([
                     'user_id' => $id,
                     'latt' => $request->latt,
