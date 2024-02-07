@@ -76,7 +76,8 @@ class GeneralController extends BaseController
         $d = $r * $c;
 
         if ($d <= 150) {
-
+            $xx=Daily::whereDate('created_at',Carbon::today())->andwhere('user_id',$user->id)->first();
+            if (!$xx){
                 $data = Daily::create([
                     'user_id' => $id,
                     'latt' => $request->latt,
@@ -84,7 +85,9 @@ class GeneralController extends BaseController
                     'day' => Carbon::today(),
                     'time' => $request->time,
                 ]);
-
+            }else{
+                return $this->sendSuccess($d, 'Siz bu funksiyadan bugun foydalangansiz,Ma\'lumotlaringiz qabul qilingan');
+            }
             if ($data) {
                 return $this->sendSuccess($d, 'Siz ishga yetib keldingiz'); // distance, in meters
             }
