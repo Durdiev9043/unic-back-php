@@ -135,7 +135,7 @@ class GeneralController extends BaseController
             $atvet[$region->name]['today']= $today;
             $atvet[$region->name]['yesterday']= $yesterday;
             $atvet[$region->name]['farqi']= $farqi;
-            $atvet[$region->name]['kpi']= $kpi;
+            $atvet[$region->name]['kpi']= round($kpi,2);
             $atvet[$region->name]['hammasi'] =  $xx;
             $atvet[$region->name]['thisweek']= $thisweek;
 
