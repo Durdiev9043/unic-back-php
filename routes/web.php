@@ -31,7 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['role:Admin']], function () {
     Route::get('/',[App\Http\Controllers\HomeController::class,'index']);
     Route::resource('user',UserController::class);
-    Route::resource('location',UserController::class);
+    Route::resource('location',LocationController::class);
     Route::resource('district',DistrictController::class);
     Route::post('region',[App\Http\Controllers\GeneralController::class,'region'])->name('admin.region');
     Route::get('district/user/count',[App\Http\Controllers\DistictUserController::class,'index'])->name('distirct.user.index.count');
