@@ -12,7 +12,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('distirct.user.index') }}" data-bs-toggle="collapse" class="nav-link text-white px-0 align-middle">
+                        <a href="{{ route('distirct.user.index.count') }}" data-bs-toggle="collapse" class="nav-link text-white px-0 align-middle">
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Tumanlar xodimlari</span>
                         </a>
 
