@@ -36,10 +36,27 @@ class GeneralController extends BaseController
     }
     public function thisweek($id){
         $user=User::where('id',$id)->first();
+        $data=[];
         $msg=$user->name.'ning bu haftada qilgan ishlari';
         $today=Carbon::today();
         $tasks=Task::where('user_id',$id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        return $this->sendSuccess($tasks,$msg);
+        foreach($tasks as $task){
+            $data[$task['id']]['id']=$task['id'];
+            $data[$task['id']]['user_id']=$task['user_id'];
+            $data[$task['id']]['img1']=$task['img1'];
+            $data[$task['id']]['img2']=$task['img2'];
+            $data[$task['id']]['img3']=$task['img3'];
+            $data[$task['id']]['img4']=$task['img4'];
+            $data[$task['id']]['img5']=$task['img5'];
+            $data[$task['id']]['akt']=$task['akt'];
+            $data[$task['id']]['organization']=$task['organization'];
+            $data[$task['id']]['stir']=$task['stir'];
+            $data[$task['id']]['lang']=$task['lang'];
+            $data[$task['id']]['lat']=$task['lat'];
+            $data[$task['id']]['task_id']=$task['task_id'];
+            $data[$task['id']]['created_at']=$task->created_at->addMinutes(300)->format('d.m.Y  H:i');
+        }
+        return $this->sendSuccess($data,$msg);
     }
     public function home($id){
         $today= count(Task::where('user_id',$id)->whereDate('created_at', Carbon::today())->get());
