@@ -60,4 +60,64 @@ class GeneralController extends Controller
         }
         return redirect()->route('user.index');
     }
+    public function fargona(){
+        $fargona=[
+            ['name'=>'A.Xolmatov', 'email'=>'A.Xolmatov1@us.uz', 'district_id'=>43, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'L.Usubjonov', 'email'=>'L.Usubjonov1@us.uz', 'district_id'=>43, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'D.Xomidov', 'email'=>'D.Xomidov1@us.uz', 'district_id'=>43, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'D.Habibxo\'jayev', 'email'=>'D.Habibxojayev1@us.uz', 'district_id'=>58, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'A.Abdujabborov', 'email'=>'A.Abdujabborov1@us.uz', 'district_id'=>58, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'U.Ilhomjonov', 'email'=>'U.Ilhomjonov1@us.uz', 'district_id'=>58, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'NasridinovParviz', 'email'=>'NasridinovParviz1@us.uz', 'district_id'=>44, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'A.Ibrohimov', 'email'=>'A.Ibrohimov1@us.uz', 'district_id'=>60, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'TuraboyevMirzoali', 'email'=>'TuraboyevMirzoali1@us.uz', 'district_id'=>44, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'J.Sobirjonov', 'email'=>'J.Sobirjonov1@us.uz', 'district_id'=>60, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'U.Saydaxmedov', 'email'=>'U.Saydaxmedov1@us.uz', 'district_id'=>61, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'XabibullayevIlyosxon', 'email'=>'XabibullayevIlyosxon1@us.uz', 'district_id'=>61, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'A.Abduqodirov', 'email'=>'A.Abduqodirov1@us.uz', 'district_id'=>59, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'A.Eminjonov', 'email'=>'A.Eminjonov1@us.uz', 'district_id'=>45, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'ErgashevShuxratjon', 'email'=>'ErgashevShuxratjon1@us.uz', 'district_id'=>56, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'H.Rajavaliyev', 'email'=>'H.Rajavaliyev1@us.uz', 'district_id'=>45, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'MuxammadjonovShermuhammad', 'email'=>'MuxammadjonovShermuhammad1@us.uz', 'district_id'=>56, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'B.Shukurov', 'email'=>'B.Shukurov1@us.uz', 'district_id'=>46, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'A.O‘ktamov', 'email'=>'A.O‘ktamov1@us.uz', 'district_id'=>55, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'A.Axmedov', 'email'=>'A.Axmedov1@us.uz', 'district_id'=>46, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'К.Тўхтаматов', 'email'=>'К.Тўхтаматов1@us.uz', 'district_id'=>53, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'A.Mahammadjonov', 'email'=>'A.Mahammadjonov1@us.uz', 'district_id'=>49, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'S.Qodirov', 'email'=>'S.Qodirov1@us.uz', 'district_id'=>52, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'S.Sherboboyev', 'email'=>'S.Sherboboyev1@us.uz', 'district_id'=>48, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'A.G‘offurov', 'email'=>'A.G‘offurov1@us.uz', 'district_id'=>57, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'Sh.Qodirov', 'email'=>'Sh.Qodirov1@us.uz', 'district_id'=>57, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'XoshimovAzizbek', 'email'=>'XoshimovAzizbek1@us.uz', 'district_id'=>51, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'X.Umarov', 'email'=>'X.Umarov1@us.uz', 'district_id'=>50, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'YangiboyevJaloliddin', 'email'=>'YangiboyevJaloliddin1@us.uz', 'district_id'=>51, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'I.Nosiraliyev', 'email'=>'I.Nosiraliyev1@us.uz', 'district_id'=>50, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'ArapovAbdulaxad', 'email'=>'ArapovAbdulaxad1@us.uz', 'district_id'=>53, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'XasanboyevAsatillo', 'email'=>'XasanboyevAsatillo1@us.uz', 'district_id'=>56, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'MuxammadakiyevG\'ulomqodir', 'email'=>'MuxammadakiyevGulomqodir1@us.uz', 'district_id'=>55, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'AbduvaliyevInomjon', 'email'=>'AbduvaliyevInomjon1@us.uz', 'district_id'=>55, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'UmirdinovDilxayot', 'email'=>'UmirdinovDilxayot1@us.uz', 'district_id'=>52, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'SobirovMuxammadsiddiq', 'email'=>'SobirovMuxammadsiddiq1@us.uz', 'district_id'=>57, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'NabiyevIlyosbek', 'email'=>'NabiyevIlyosbek1@us.uz', 'district_id'=>49, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'YigitaliyevIqboljon', 'email'=>'YigitaliyevIqboljon1@us.uz', 'district_id'=>49, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'XoshimovAlisher', 'email'=>'XoshimovAlisher1@us.uz', 'district_id'=>49, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'Jo\'rayevIslombek', 'email'=>'JorayevIslombek1@us.uz', 'district_id'=>46, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'Mo\'minjonoHalimjon', 'email'=>'MminjonoHalimjon1@us.uz', 'district_id'=>45, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'HojiyevIzatillo', 'email'=>'HojiyevIzatillo1@us.uz', 'district_id'=>44, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'TursunovAkmaljon', 'email'=>'TursunovAkmaljon1@us.uz', 'district_id'=>50, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'TillaboyevDoniyorjon', 'email'=>'TillaboyevDoniyorjon1@us.uz', 'district_id'=>54, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'MamatqulovSerobjon', 'email'=>'MamatqulovSerobjon1@us.uz', 'district_id'=>54, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'TolibjonovEldorjon', 'email'=>'TolibjonovEldorjon1@us.uz', 'district_id'=>54, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'JamolovRamzbek', 'email'=>'JamolovRamzbek1@us.uz', 'district_id'=>59, 'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'AzimovLazizjon', 'email'=>'AzimovLazizjon1@us.uz', 'district_id'=>47,	'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'TursunovXalimjon', 'email'=>'TursunovXalimjon1@us.uz', 'district_id'=>60,	'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'JamolovAbdurahmon', 'email'=>'JamolovAbdurahmon1@us.uz', 'district_id'=>59,	'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'YusubovTal\'atbek', 'email'=>'YusubovTalatbek1@us.uz', 'district_id'=>61,	'region_id'=>3, 'password'=>bcrypt('tuman'), 'role'=>4],
+            ];
+        $role_id=Role::all()->where('id',4)->first();
+        foreach ($fargona as $data){
+            User::create($data)->assignRole([$role_id->id]);
+        }
+        return redirect()->route('user.index');
+    }
 }

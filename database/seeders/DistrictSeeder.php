@@ -241,7 +241,7 @@ class DistrictSeeder extends Seeder
 ['name'=>'N.Sadullayev'	, 'email'=>'N.Sadullayev1@us.uz'	, 'district_id'=>9	, 'region_id'=>13, 'password'=>bcrypt('tuman'),'role'=>4],
 ['name'=>'R.Jabbergenov'	, 'email'=>'R.Jabbergenov1@us.uz'	, 'district_id'=>9	, 'region_id'=>13, 'password'=>bcrypt('tuman'),'role'=>4],
 ['name'=>'JumaboyevXumoyun'	, 'email'=>'JumaboyevXumoyun1@us.uz'	, 'district_id'=>11	, 'region_id'=>13, 'password'=>bcrypt('tuman'),'role'=>4],
-            ['name'=>'AlimovAbdurohid'	,'email'=>'AlimovAbdurohid1@us.uz',	'district_id'=>71, 'region_id'=>4, 'password'=>bcrypt('tuman'), 'role'=>4],
+['name'=>'AlimovAbdurohid'	,'email'=>'AlimovAbdurohid1@us.uz',	'district_id'=>71, 'region_id'=>4, 'password'=>bcrypt('tuman'), 'role'=>4],
 ['name'=>'IslomovDavlatbek'	,'email'=>'IslomovDavlatbek1@us.uz',	'district_id'=>71, 'region_id'=>4, 'password'=>bcrypt('tuman'), 'role'=>4],
 ['name'=>'IslomovBegzod'	,'email'=>'IslomovBegzod1@us.uz',	'district_id'=>71, 'region_id'=>4, 'password'=>bcrypt('tuman'), 'role'=>4],
 ['name'=>'MusurmonovSherzod'	,'email'=>'MusurmonovSherzod1@us.uz',	'district_id'=>70, 'region_id'=>4, 'password'=>bcrypt('tuman'), 'role'=>4],

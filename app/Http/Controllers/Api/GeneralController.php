@@ -56,7 +56,7 @@ class GeneralController extends BaseController
             $data[$task['id']]['task_id']=$task['task_id'];
             $data[$task['id']]['created_at']=$task->created_at->addMinutes(300)->format('d.m.Y  H:i');
         }
-        return $this->sendSuccess($data,$msg);
+        return $this->sendSuccess($tasks,$msg);
     }
     public function home($id){
         $today= count(Task::where('user_id',$id)->whereDate('created_at', Carbon::today())->get());

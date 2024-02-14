@@ -45,7 +45,7 @@ class DistictUserController extends Controller
         ])->assignRole([$role_id]);
 
 
-        return redirect()->route('distirct.user.index')
+        return redirect()->route('user.index')
             ->with('success','Успешно Обновлено');
 
 

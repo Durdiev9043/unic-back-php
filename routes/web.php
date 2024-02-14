@@ -38,4 +38,5 @@ Route::group(['middleware' => ['role:Admin']], function () {
     Route::post('district/user',[App\Http\Controllers\DistictUserController::class,'store'])->name('distirct.user.store');
     Route::get('xx/{id}',[\App\Http\Controllers\api\GeneralController::class,'userCount']);
     Route::get('/buxoro',[\App\Http\Controllers\GeneralController::class,'buxoro']);
+    Route::get('/fargona',[\App\Http\Controllers\GeneralController::class,'fargona']);
 });
