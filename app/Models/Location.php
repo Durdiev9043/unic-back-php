@@ -9,4 +9,8 @@ class Location extends Model
 {
     use HasFactory;
     protected $fillable=['district_id','latt','lang'];
+
+    public function district(){
+        return $this->belongsTo(District::class);
+    }
 }

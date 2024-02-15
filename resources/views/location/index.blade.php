@@ -45,12 +45,16 @@
                 <table class="table">
                     <tr>
                         <td>№</td>
-                        <td>name</td>
-                        <td>email</td>
+                        <td>region</td>
+                        <td>district</td>
+                        <td>lat</td>
+                        <td>lang</td>
                     </tr>
                     @foreach($offices as $office)
                         <tr>
                             <td>{{ $office->id }}</td>
+                            <td>{{ $office->district->region->name }}</td>
+                            <td>{{ $office->district->name }}</td>
                             <td>{{ $office->latt }}</td>
                             <td>{{ $office->lang }}</td>
 
