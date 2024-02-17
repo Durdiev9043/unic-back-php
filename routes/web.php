@@ -39,4 +39,5 @@ Route::group(['middleware' => ['role:Admin']], function () {
     Route::get('xx/{id}',[\App\Http\Controllers\api\GeneralController::class,'userCount']);
     Route::get('/buxoro',[\App\Http\Controllers\GeneralController::class,'buxoro']);
     Route::get('/fargona',[\App\Http\Controllers\GeneralController::class,'fargona']);
+    Route::get('/samarqand',[\App\Http\Controllers\GeneralController::class,'samarqand']);
 });
