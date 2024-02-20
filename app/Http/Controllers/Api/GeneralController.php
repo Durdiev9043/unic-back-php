@@ -152,7 +152,7 @@ class GeneralController extends BaseController
             $atvet[$region->name]['today']= $today;
             $atvet[$region->name]['yesterday']= $yesterday;
             $atvet[$region->name]['farqi']= $farqi;
-            $atvet[$region->name]['kpi']= (double)number_format($kpi,2);
+            $atvet[$region->name]['kpi']= (double)number_format($kpi,1);
             $atvet[$region->name]['hammasi'] =  $xx;
             $atvet[$region->name]['thisweek']= $thisweek;
 
@@ -199,7 +199,7 @@ class GeneralController extends BaseController
         $atvet[$district->name]['name']=$district->name;
         $atvet[$district->name]['hammasi']=$xx;
         $atvet[$district->name]['today']= $today;
-        $atvet[$district->name]['kpi']= (double)number_format($kpi,2);
+        $atvet[$district->name]['kpi']= (double)number_format($kpi,1);
         $atvet[$district->name]['yesterday']= $yesterday;
         $atvet[$district->name]['thisweek']= $thisweek;
         $atvet[$district->name]['user']= $hodimlar;
