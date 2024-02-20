@@ -48,11 +48,28 @@
                         <td>name</td>
                         <td>email</td>
                     </tr>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
                     @foreach($districts as $district)
                         <tr>
                             <td>{{ $district->id }}</td>
                             <td>{{ $district->name }}</td>
                             <td>{{ $district->region->name }}</td>
+                            <td>
+                                <form action="{{ route('district.destroy',$district ->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a class="btn btn-warning btn-sm m-1" href="{{ route('district.edit',$district->id) }}">
+                                    <span class="btn-label">
+                                        <i class="fa fa-pen"></i>
+                                    </span>
+
+                                    </a>
+
+                                    <button type="submit" class="btn btn-danger m-1 btn-sm"><span class="btn-label">
+                                        <i class="fa fa-trash"></i>
+                                    </span></button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </table>

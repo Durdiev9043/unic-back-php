@@ -36,20 +36,27 @@ class DistrictController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(District $district)
     {
-        //
+        $regions=Region::all();
+        return view('district.edit',['district'=>$district,'regions'=>$regions]);
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, District $district)
     {
-        //
+       if ($request->region_id) {
+           $district->update($request->all());
+       }elseif (
+           $district->update($request->name)
+       )
+        return redirect()->route('district.index');
     }
 
 
-    public function destroy($id)
+    public function destroy(District $district)
     {
-        //
+        $district->delete();
+        return redirect()->route('district.index');
     }
 }
