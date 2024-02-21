@@ -11,6 +11,7 @@ use App\Models\Region;
 use App\Models\Task;
 use App\Models\TaskType;
 use App\Models\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -278,6 +279,56 @@ public function workTime(){
         $atvet[$item->id]['time'] = $item->created_at->addMinutes(300)->format('d.m.Y  H:i');
     }
         return $atvet;
+}
+public function FiltrRegion(Request $request)
+{
+    $regions=Region::all();
+    $atvet=[];
+    $to_date=Carbon::parse($request->to_date)->format('Y-m-d');
+    $yes=Carbon::parse($request->to_date)->subDay(1)->format('Y-m-d');
+$dd=Carbon::parse($request->to_date);
+    foreach ($regions as $region){
+        $xx=DB::table('users')
+            ->select('users.id', 'users.region_id','tasks.created_at', 'tasks.id as id')
+            ->join('tasks', 'users.id', '=', 'tasks.user_id')
+            ->where('region_id',$region->id)->count();
+        $today=DB::table('users')
+            ->select('users.id', 'users.region_id','tasks.created_at', 'tasks.id as id')
+            ->join('tasks', 'users.id', '=', 'tasks.user_id')
+            ->where('region_id',$region->id)->whereDate('tasks.created_at', $to_date)->count();
+        $yesterday=DB::table('users')
+            ->select('users.id', 'users.region_id','tasks.created_at', 'tasks.id as id')
+            ->join('tasks', 'users.id', '=', 'tasks.user_id')
+            ->where('region_id',$region->id)->whereDate('tasks.created_at', $yes)->count();
+//        $thisweek=DB::table('users')
+//            ->select('users.id', 'users.region_id','tasks.created_at', 'tasks.id as id')
+//            ->join('tasks', 'users.id', '=', 'tasks.user_id')
+//            ->where('region_id',$region->id)->whereBetween('tasks.created_at', [$dd->startOfWeek(), $dd->endOfWeek()])->count();
+        $district=District::where('region_id',$region->id)->count();
+        $hodimlar=User::where('region_id',$region->id)->whereNotNull('district_id')->count();
+        if ($hodimlar>0) {
+            $kpi = ($today / ($hodimlar * 5))*100;
+        }else{
+            $kpi=0;
+        }
+        $farqi=$today-$yesterday;
+
+
+        $atvet[$region->name]['id'] =  $region->id;
+        $atvet[$region->name]['nomi'] =  $region->name;
+        $atvet[$region->name]['District']= $district;
+        $atvet[$region->name]['User']= $hodimlar;
+        $atvet[$region->name]['today']= $today;
+        $atvet[$region->name]['yesterday']= $yesterday;
+        $atvet[$region->name]['farqi']= $farqi;
+        $atvet[$region->name]['kpi']= (double)number_format($kpi,1);
+        $atvet[$region->name]['hammasi'] =  $xx;
+//        $atvet[$region->name]['thisweek']= $thisweek;
+
+
+    }
+//        return $this->sendSuccess($atvet,'Viloyatlar kesimida qilingan ishlar');
+    return $atvet;
 }
 
 }

@@ -37,4 +37,5 @@ Route::middleware(['auth:sanctum'/*, 'abilities:check-status'*/])->group(functio
     Route::get('user/count/{id}',[GeneralController::class,'userCount']);
     Route::get('task/type',[GeneralController::class,'type']);
     Route::get('work/time',[GeneralController::class,'workTime']);
+    Route::get('filter/region',[GeneralController::class,'FiltrRegion']);
 });
