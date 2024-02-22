@@ -68,20 +68,28 @@ class UserController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $regions=Region::all();
+
+        return view('distirctUser.edit',['user'=>$user,'regions'=>$regions]);
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $region_id=$user->region_id;
+        $district_id=$user->district_id;
+
+            $user->update($request->all());
+
+            return redirect()->route('user.index');
     }
 
 
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->back();
     }
 }
