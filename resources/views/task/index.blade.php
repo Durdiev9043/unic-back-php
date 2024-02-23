@@ -64,8 +64,8 @@
                             <td>{{ $task->stir }}</td>
                             <td>{{ $task->organization }}</td>
                             <td>{{ $task->task->name }}</td>
-                            <td><img src="{{ asset('storage/galereya/'.$task->img1) }}" alt=""></td>
-                            <td><img src="{{ asset('storage/galereya/'.$task->akt) }}"   width="20%" alt=""></td>
+{{--                            <td><img src="{{ asset('storage/galereya/'.$task->img1) }}" alt=""></td>--}}
+{{--                            <td><img src="{{ asset('storage/galereya/'.$task->akt) }}"   width="20%" alt=""></td>--}}
                             <td>
                                 <form action="{{ route('task.destroy',$task ->id) }}" method="POST">
                                     @csrf
