@@ -22,6 +22,10 @@
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">location</span></a>
                     </li>
                     <li>
+                        <a href="{{ route('task.index') }}" class="nav-link px-0 text-white align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Barcha qoshilgan ishlar</span></a>
+                    </li>
+                    <li>
                         <a href="{{ route('district.index') }}" class="nav-link px-0 text-white align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Tumanlar</span></a>
                     </li>
