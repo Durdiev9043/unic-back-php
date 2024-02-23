@@ -88,6 +88,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {!! $tasks->link() !!}
             </div>
         </div>
     </div>
