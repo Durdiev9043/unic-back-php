@@ -43,6 +43,7 @@
             <div class="col-md-8">
                 <button id="myBtn" class="btn btn-light">Open Modal</button>
                 <table id="table" class="table">
+                    <thead>
                     <tr>
                         <td>№</td>
                         <td>region</td>
@@ -52,7 +53,10 @@
                         <td>-/-</td>
                         <td>-/-</td>
                     </tr>
+                    </thead>
+                    <tbody>
                     @foreach($offices as $office)
+
                         <tr>
                             <td>{{ $office->id }}</td>
                             <td>{{ $office->district->region->name }}</td>
@@ -73,7 +77,9 @@
                                 </form>
                             </td>
                         </tr>
+
                     @endforeach
+                        </tbody>
                 </table>
             </div>
         </div>
