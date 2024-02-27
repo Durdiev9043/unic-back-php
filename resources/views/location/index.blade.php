@@ -49,6 +49,7 @@
                         <td>district</td>
                         <td>lat</td>
                         <td>lang</td>
+                        <td>-/-</td>
                     </tr>
                     @foreach($offices as $office)
                         <tr>
