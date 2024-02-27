@@ -115,7 +115,27 @@
 
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="{{asset('/js/core/jquery.3.2.1.min.js')}}"></script>
+    {{--    <script src="{{ asset('jquery.js')}}" ></script>--}}
+    {{--    <link href="https://cdn.datatables.net/v/dt/dt-1.13.10/datatables.min.css" rel="stylesheet">--}}
+    <script src="{{asset('/js/plugin/datatables/datatables.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <script>
+        $(document).ready( function () {
+            $('#table').DataTable({
+                dom: 'Bfrtip',
+                "buttons": [
+                    {
+                        "extend": 'excel',
+                        "text": ' Малумотларни excel форматда юклаб олиш',
+                        "className": 'btn btn-primary btn-xm'
+                    }
+                ],
+                "aLengthMenu": [200],
+            });
+        });
         var modal = document.getElementById("myModal");
 
         var btn = document.getElementById("myBtn");
