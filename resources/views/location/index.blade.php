@@ -42,7 +42,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <button id="myBtn" class="btn btn-light">Open Modal</button>
-                <table class="table">
+                <table id="table" class="table">
                     <tr>
                         <td>№</td>
                         <td>region</td>
