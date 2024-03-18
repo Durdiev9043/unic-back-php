@@ -269,12 +269,13 @@ public function workTime(){
 //    where('created_at', Carbon::today())
     $atvet=[];
     foreach ($data as $item) {
+            $user= DB::table('users')->select('id','name')->where('id',$item->user_id)->first();
         $atvet[$item->id]['id'] = $item->id;
-        $atvet[$item->id]['user'] = DB::table('users')->select('id','name')->where('id',$item->user_id)->first()->name;
+        $atvet[$item->id]['user'] =$user->name;
 
 //        $atvet[$item->id]['user'] = User::where('id',$item->user_id)->first()->name;
-//        $atvet[$item->id]['region'] = $item->user->region->name;
-//        $atvet[$item->id]['district'] = $item->user->district->name;
+        $atvet[$item->id]['region'] = table('regions')->select('id','name')->where('id',$user->region_id)->first()->name;
+        $atvet[$item->id]['district'] = $item->user->district->name;
         $atvet[$item->id]['day'] = $item->day;
         $atvet[$item->id]['lat'] = $item->latt;
         $atvet[$item->id]['lang'] = $item->lang;
