@@ -270,10 +270,10 @@ public function workTime(){
     $atvet=[];
     foreach ($data as $item) {
         $atvet[$item->id]['id'] = $item->id;
-//        $atvet[$item->id]['user'] = $item->user_id;
+        $atvet[$item->id]['user'] = $item->user->name;
 //        $atvet[$item->id]['user'] = User::where('id',$item->user_id)->first()->name;
-        $atvet[$item->id]['region'] = $item->user->region->name;
-        $atvet[$item->id]['district'] = $item->user->district->name;
+//        $atvet[$item->id]['region'] = $item->user->region->name;
+//        $atvet[$item->id]['district'] = $item->user->district->name;
         $atvet[$item->id]['day'] = $item->day;
         $atvet[$item->id]['lat'] = $item->latt;
         $atvet[$item->id]['lang'] = $item->lang;
