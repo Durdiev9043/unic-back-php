@@ -45,10 +45,7 @@ public function district(){
     public function region(){
         return $this->belongsTo(Region::class);
     }
-    public function daily()
-    {
-        return $this->hasOne(Daily::class);
-    }
+
     /**
      * The attributes that should be cast.
      *
