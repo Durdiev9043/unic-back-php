@@ -274,7 +274,7 @@ public function workTime(){
         $atvet[$item->id]['user'] =$user->name;
 
 //        $atvet[$item->id]['user'] = User::where('id',$item->user_id)->first()->name;
-        $atvet[$item->id]['region'] = table('regions')->select('id','name')->where('id',$user->region_id)->first()->name;
+        $atvet[$item->id]['region'] = DB::table('regions')->select('id','name')->where('id',$user->region_id)->first()->name;
         $atvet[$item->id]['district'] = $item->user->district->name;
         $atvet[$item->id]['day'] = $item->day;
         $atvet[$item->id]['lat'] = $item->latt;
