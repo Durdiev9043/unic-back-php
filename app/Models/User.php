@@ -38,6 +38,10 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    public function name()
+    {
+        return 'name';
+    }
 public function district(){
     return $this->belongsTo(District::class);
 }
